@@ -15,8 +15,8 @@ sudo: required
 # in the env:global: section, environment variables are set for
 # all builds, while in an env:matrix: section, each line defines
 # another array of builds.
-env:
-  global:
+#env:
+#  global:
     
 
 matrix:
@@ -26,25 +26,28 @@ matrix:
       python: '2.7'             # Version of python to use
       os: linux                 # The OS of the VM
       install:                  # tool installation
-        - sudo apt-get update
-        - sudo apt-get install net-tools
+        sudo apt-get update;
+        sudo apt-get install net-tools;
+
     - language: python
       python: '2.6'
       os: linux
       install:
-        - sudo apt-get update
-        - sudo apt-get install net-tools
+        sudo apt-get update;
+        sudo apt-get install net-tools;
+
     # Because Travis-CI no longer offers the 2.5 environment by default,
     # we'll manually install 2.5.... It's not even available on the common
     # ubuntu repos, so we'll use deadsnakes.
     - language: python
       os: linux
+      env: Python='2.5'
       install:
-        sudo add-apt-repository ppa:fkrull/deadsnakes
-        sudo apt-get update
-        sudo apt-get install net-tools
-        sudo apt-get install python2.5
-        sudo ln -s /usr/bin/python2.5 /usr/bin/python
+        sudo add-apt-repository "ppa:fkrull/deadsnakes";
+        sudo apt-get update;
+        sudo apt-get install net-tools;
+        sudo apt-get install python2.5;
+        sudo ln -s /usr/bin/python2.5 /usr/bin/python;
 
     # OS X Instances follow
     # There is no OS X + PYTHON combination available by default, so we
@@ -57,12 +60,14 @@ matrix:
     # OS X Python current version (currently 2.7.11)
     - language: generic
       os: osx
+      env: Python='2.7'
       install:
           brew update;
           brew install python;
     # OS X python 2.5.6
     - language: generic
       os: osx
+      env: Python='2.5.6'
       install:
           brew update;
           brew install pyenv;
@@ -71,6 +76,7 @@ matrix:
     # OS X python 2.6.9
     - language: generic
       os: osx
+      env: Python='2.6.9'
       install:
           brew update;
           brew install python26;
