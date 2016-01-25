@@ -29,18 +29,18 @@ matrix:
       install:
         - sudo apt-get update
         - sudo apt-get install net-tools
-    
     # Because Travis-CI no longer offers the 2.5 environment by default,
     # we'll manually install 2.5.... It's not even available on the common
     # ubuntu repos, so we'll use deadsnakes.
     - language: python
       os: linux
+      sudo: required
       install:
-        - sudo add-apt-repository ppa:fkrull/deadsnakes
-        - sudo apt-get update
-        - sudo apt-get install net-tools
-        - sudo apt-get install python2.5
-        - sudo ln -s /usr/bin/python2.5 /usr/bin/python
+        sudo add-apt-repository ppa:fkrull/deadsnakes
+        sudo apt-get update
+        sudo apt-get install net-tools
+        sudo apt-get install python2.5
+        sudo ln -s /usr/bin/python2.5 /usr/bin/python
 
     # OS X Instances follow
     # There is no OS X + PYTHON combination available by default, so we
