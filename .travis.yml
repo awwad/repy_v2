@@ -6,6 +6,11 @@
 # The result of this configuration will be six separate builds on
 # Travis-CI VMs, 3 python versions each on Linux and OS X.
 
+# Because of some manual fiddling to get python 2.5 tests to work,
+# we require the following directive - we need non-container-based
+# infrastructure so that Travis allows us to use sudo.
+sudo: required
+
 # env directive allows us to define some environment variables.
 # in the env:global: section, environment variables are set for
 # all builds, while in an env:matrix: section, each line defines
@@ -34,7 +39,6 @@ matrix:
     # ubuntu repos, so we'll use deadsnakes.
     - language: python
       os: linux
-      sudo: required
       install:
         sudo add-apt-repository ppa:fkrull/deadsnakes
         sudo apt-get update
