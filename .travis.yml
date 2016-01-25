@@ -31,9 +31,9 @@ matrix:
     # OS X Python current version (currently 2.7.11)
     - language: python
       os: osx
-      install:
-          brew update;
-          brew install python;
+#      install:
+#          brew update;
+#          brew install python;
     # OS X python 2.5.6
     - language: python
       os: osx
