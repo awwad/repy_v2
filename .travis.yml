@@ -43,7 +43,7 @@ matrix:
       os: linux
       env: Python='2.5'
       install:
-        sudo add-apt-repository "ppa:fkrull/deadsnakes";
+        sudo add-apt-repository "ppa:fkrull/deadsnakes" -y;
         sudo apt-get update;
         sudo apt-get install net-tools;
         sudo apt-get install python2.5;

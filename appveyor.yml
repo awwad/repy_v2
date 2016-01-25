@@ -26,7 +26,7 @@ environment:
 
 # Run on 32-bit and 64-bit platforms.
 platform:
-  - x86
+  #- x86
   - x64
 
 # Execute the following sequence of commands for a given
