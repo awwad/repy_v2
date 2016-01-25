@@ -73,7 +73,7 @@ matrix:
           TESTVAR=success_26
 script:
   - python --version
-  - echo "Value of testvar is: " $TESTVAR
+  - echo "Value of testvar is: $TESTVAR"
   - cd ./scripts
   - python initialize.py
   - python build.py -t
