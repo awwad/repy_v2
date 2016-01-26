@@ -32,12 +32,12 @@ platform:
 # Execute the following sequence of commands for a given
 # build.
 test_script:
-  - "%PYTHON% --version"
+  - "%PYTHON%\\python --version"
   - "cd scripts"
-  - "%PYTHON% initialize.py"
-  - "%PYTHON% build.py -t"
+  - "%PYTHON%\\python initialize.py"
+  - "%PYTHON%\\python build.py -t"
   - "cd ../RUNNABLE"
-  - "%PYTHON% utf.py -a"
+  - "%PYTHON%\\python utf.py -a"
 
 
 skip_commits:
