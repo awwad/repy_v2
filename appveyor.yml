@@ -16,13 +16,13 @@ environment:
   matrix:
     # Run on each of the following three Python setups.
     - PYTHON: "C:\\Python27"
-      PYTHON_VERSION: "2.7.9"
+      PYTHON_VERSION: "2.7.x"
 
-    - PYTHON: "C:\Python26"
-      PYTHON_VERSION: "2.6.9"
+    - PYTHON: "C:\\Python26"
+      PYTHON_VERSION: "2.6.x"
 
     - PYTHON: "C:\\Python25"
-      PYTHON_VERSION: "2.5.6"
+      PYTHON_VERSION: "2.5.x"
 
 # Run on 32-bit and 64-bit platforms.
 platform:
@@ -32,12 +32,12 @@ platform:
 # Execute the following sequence of commands for a given
 # build.
 test_script:
-  - "python --version"
+  - "%PYTHON% --version"
   - "cd scripts"
-  - "python initialize.py"
-  - "python build.py -t"
+  - "%PYTHON% initialize.py"
+  - "%PYTHON% build.py -t"
   - "cd ../RUNNABLE"
-  - "python utf.py -a"
+  - "%PYTHON% utf.py -a"
 
 
 skip_commits:
