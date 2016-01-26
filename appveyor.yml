@@ -16,18 +16,18 @@ environment:
   matrix:
     # Run on each of the following three Python setups.
     - PYTHON: "C:\\Python27"
-      PYTHON_VERSION: "2.7.x"
+      PYTHON_VERSION: "2.7.9"
 
-    - PYTHON: "C:\\Python26"
-      PYTHON_VERSION: "2.6.x"
+    - PYTHON: "C:\Python26"
+      PYTHON_VERSION: "2.6.9"
 
     - PYTHON: "C:\\Python25"
-      PYTHON_VERSION: "2.5.x"
+      PYTHON_VERSION: "2.5.6"
 
 # Run on 32-bit and 64-bit platforms.
 platform:
-  #- x86
-  - x64
+  - x86
+  #- x64
 
 # Execute the following sequence of commands for a given
 # build.

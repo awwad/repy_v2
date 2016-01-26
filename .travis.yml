@@ -46,6 +46,7 @@ matrix:
         sudo add-apt-repository "ppa:fkrull/deadsnakes" -y;
         sudo apt-get update;
         sudo apt-get install net-tools;
+	sudo mv /usr/bin/python /usr/bin/python_old
         sudo apt-get install python2.5;
         sudo ln -s /usr/bin/python2.5 /usr/bin/python;
 
@@ -64,25 +65,29 @@ matrix:
       install:
           brew update;
           brew install python;
+
     # OS X python 2.5.6
     - language: generic
       os: osx
       env: Python='2.5.6'
       install:
-          brew update;
-          brew install pyenv;
+          #brew update;
+          #brew install pyenv;
           pyenv install 2.5.6;
           pyenv global 2.5.6;
+
     # OS X python 2.6.9
     - language: generic
       os: osx
       env: Python='2.6.9'
       install:
-          brew update;
-          brew install python26;
-          #pyenv install 2.6.9;
-          #pyenv global 2.6.9;
+          #brew update;
+          #brew install python26;
+          pyenv install 2.6.9;
+          pyenv global 2.6.9;
 script:
+  - if [ $Python=="2.6.9" ]; then pyenv global 2.6.9; fi
+  - if [ $Python=="2.5.6" ]; then pyenv global 2.5.6; fi
   - python --version
   - cd ./scripts
   - python initialize.py
